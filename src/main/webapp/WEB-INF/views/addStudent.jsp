@@ -32,8 +32,16 @@
         性别：<input type="text" name="gender"><br><br><br>
         身份证：<input type="text" name="idCard"><br><br><br>
         手机号：<input type="text" name="phone"><br><br><br>
-        省：<input type="text" name="province"><br><br><br>
-        市：<input type="text" name="city"><br><br><br>
+       <%-- 省：<input type="text" name="province"><br><br><br>--%>
+        省：<select id="shen">
+        <option value="浙江">浙江</option>
+        <option value="湖南">湖南</option>
+        </select>
+        <br><br><br>
+        市：<select id="city">
+
+    </select>
+     <%--   市：<input type="text" name="city"><br><br><br>--%>
         区：<input type="text" name="county"><br><br><br>
 
         <br><br><br><br><br><br>
@@ -42,7 +50,19 @@
     </form>
 
     <script>
+      $("#shen").change(function (){
+          $("#city").empty()
+          var value = $(this).val();
+          if(value=="湖南"){
+              $("#city").append(" <option value='长沙'>长沙</option>")
+              $("#city").append(" <option value='怀化'>怀化</option>")
+          }else if(value=="浙江"){
+              $("#city").append(" <option value='杭州'>杭州</option>")
+              $("#city").append(" <option value='温州'>温州</option>")
+          }
 
+
+      })
 
     </script>
 
