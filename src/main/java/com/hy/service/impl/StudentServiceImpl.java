@@ -21,7 +21,6 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    @Transactional()
     public int addStudent(Student student ) {
         return studentMapper.addStudent(student);
     }
@@ -29,18 +28,15 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public Student getStudent(Integer id) {
-        Student student = studentMapper.selectByPrimaryKey(id);
-        return student;
+        return studentMapper.selectByPrimaryKey(id);
     }
 
     @Override
-    @Transactional
     public int deleteByPrimaryKey(Integer id) {
         return studentMapper.deleteByPrimaryKey(id);
     }
 
     @Override
-    @Transactional
     public int updateStudent(Student students) {
         return studentMapper.updateStudent(students);
     }

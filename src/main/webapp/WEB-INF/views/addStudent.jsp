@@ -33,12 +33,14 @@
         身份证：<input type="text" name="idCard"><br><br><br>
         手机号：<input type="text" name="phone"><br><br><br>
        <%-- 省：<input type="text" name="province"><br><br><br>--%>
-        省：<select id="shen">
+        省：<select id="shen" name="province">
         <option value="浙江">浙江</option>
         <option value="湖南">湖南</option>
+        <option value="江苏">江苏</option>
+        <option value="上海">上海</option>
         </select>
         <br><br><br>
-        市：<select id="city">
+        市：<select id="city" name="city">
 
     </select>
      <%--   市：<input type="text" name="city"><br><br><br>--%>
@@ -47,6 +49,7 @@
         <br><br><br><br><br><br>
         备注:<input type="text" name="notes"><br><br><br>
         <input type="submit" value="添加">
+
     </form>
 
     <script>
@@ -59,6 +62,15 @@
           }else if(value=="浙江"){
               $("#city").append(" <option value='杭州'>杭州</option>")
               $("#city").append(" <option value='温州'>温州</option>")
+              $("#city").append(" <option value='台州'>台州</option>")
+              $("#city").append(" <option value='宁波'>宁波</option>")
+          }else if(value=="江苏"){
+              $("#city").append(" <option value='南京'>南京</option>")
+              $("#city").append(" <option value='无锡'>无锡</option>")
+              $("#city").append(" <option value='苏州'>苏州</option>")
+              $("#city").append(" <option value='泰州'>泰州</option>")
+          }else if(value=="上海"){
+              $("#city").append(" <option value='上海'>上海</option>")
           }
 
 

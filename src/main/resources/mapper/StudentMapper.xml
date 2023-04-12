@@ -130,7 +130,7 @@
   </select>
 
   <update id="updateStudent" parameterType="com.hy.pojo.Student">
-        update student.ba_student
+        update ba_student
         set name = #{name},gender = #{gender},id_card = #{idCard},phone = #{phone},province = #{province},city = #{city},county = #{county}
         ,notes = #{notes},co_id = #{coId},cl_id = #{clId}
         where id = #{id}

@@ -24,6 +24,7 @@
     </div>
 
     <form action="${pageContext.request.contextPath}/student/updateStudent" method="post">
+        <input type="hidden" name="id" value="${student.id}"/>
         名称：<input type="text" name="name" value="${student.getName()}"><br><br><br>
         性别：<input type="text" name="gender" value="${student.getGender()}"><br><br><br>
         身份证：<input type="text" name="idCard" value="${student.getIdCard()}"><br><br><br>
@@ -32,7 +33,7 @@
         市：<input type="text" name="city" value="${student.getCity()}"><br><br><br>
         区：<input type="text" name="county" value="${student.getCounty()}"><br><br><br>
         备注:<input type="text" name="notes" value="${student.getNotes()}"><br><br><br>
-        <input type="submit" value="提交"/>
+        <input type="submit" value="添加"/>
     </form>
 
 </div>

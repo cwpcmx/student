@@ -30,7 +30,7 @@ public class StudentController {
     }
 
     @RequestMapping("/addStudent")
-    public String addPaper(Student students) {
+    public String addStudent(Student students) {
         studentService.addStudent(students);
         return "redirect:/student/allStudent";
     }
@@ -42,13 +42,11 @@ public class StudentController {
         return "updateStudent";
     }
 
-    @RequestMapping("/updateStudent")
-    public String updateStudent(Model model, Student student) {
-        studentService.updateStudent(student);
-        int i = studentService.updateStudent(student);
-     /*   model.addAttribute("students", students);*/
-        return "redirect:/student/allStudent";
-    }
+     @RequestMapping("/updateStudent")
+     public String updateStudent(Student students) {
+         studentService.updateStudent(students);
+         return "redirect:/student/allStudent";
+     }
 
     @RequestMapping("/del/{studentId}")
     public String deleteStudent(@PathVariable("studentId") int id) {
