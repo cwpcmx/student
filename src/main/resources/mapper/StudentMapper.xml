@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hy.dao.StudentMapper">
+  <resultMap id="BaseResultMap" type="com.hy.pojo.Student">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="gender" jdbcType="CHAR" property="gender" />
+    <result column="id_card" jdbcType="VARCHAR" property="idCard" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="county" jdbcType="VARCHAR" property="county" />
+    <result column="notes" jdbcType="VARCHAR" property="notes" />
+    <result column="co_id" jdbcType="INTEGER" property="coId" />
+    <result column="cl_id" jdbcType="INTEGER" property="clId" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from ba_student
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+
+  <insert id="addStudent" parameterType="com.hy.pojo.Student">
+        insert into student.ba_student(name,gender,id_card,phone,province, city, county, notes, co_id, cl_id)
+        values (#{name}, #{gender}, #{idCard}, #{phone}, #{province}, #{city}, #{county}, #{notes}, #{coId}, #{clId})
+    </insert>
+
+  <insert id="insert" parameterType="com.hy.pojo.Student">
+    insert into ba_student (id, name, gender, 
+      id_card, phone, province, 
+      city, county, notes, 
+      co_id, cl_id)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{gender,jdbcType=CHAR}, 
+      #{idCard,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, 
+      #{city,jdbcType=VARCHAR}, #{county,jdbcType=VARCHAR}, #{notes,jdbcType=VARCHAR}, 
+      #{coId,jdbcType=INTEGER}, #{clId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.hy.pojo.Student">
+    insert into ba_student
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+      <if test="id_card != null">
+        id_card,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="province != null">
+        province,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="county != null">
+        county,
+      </if>
+      <if test="notes != null">
+        notes,
+      </if>
+      <if test="co_id != null">
+        co_id,
+      </if>
+      <if test="cl_id != null">
+        cl_id,
+      </if>
+
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        #{price,jdbcType=CHAR},
+      </if>
+      <if test="id_card != null">
+        #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{sales,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        #{stock,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{imgPath,jdbcType=VARCHAR},
+      </if>
+      <if test="county != null">
+        #{imgPath,jdbcType=VARCHAR},
+      </if>
+      <if test="notes != null">
+        #{imgPath,jdbcType=VARCHAR},
+      </if>
+      <if test="co_id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="cl_id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+    </trim>
+
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.hy.pojo.Student">
+    update ba_student
+    set name = #{name,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=CHAR},
+      id_card = #{idCard,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      county = #{county,jdbcType=VARCHAR},
+      notes = #{notes,jdbcType=VARCHAR},
+      co_id = #{coId,jdbcType=INTEGER},
+      cl_id = #{clId,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, name, gender, id_card, phone, province, city, county, notes, co_id, cl_id
+    from ba_student
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+
+  <update id="updateStudent" parameterType="com.hy.pojo.Student">
+        update student.ba_student
+        set name = #{name},gender = #{gender},id_card = #{idCard},phone = #{phone},province = #{province},city = #{city},county = #{county}
+        ,notes = #{notes},co_id = #{coId},cl_id = #{clId}
+        where id = #{id}
+    </update>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, gender, id_card, phone, province, city, county, notes, co_id, cl_id
+    from ba_student
+  </select>
+
+</mapper>
